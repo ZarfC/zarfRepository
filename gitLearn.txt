@@ -3,29 +3,44 @@ modified
 append 123
 
 ###############
-##	
+##版本回退	
 	HEAD 指向的版本就是当前版本
-	切换版本：git reset --hard commitId(写下前几位即可，Git会自动去找)
-	切换版本前可以使用：git log 查看提交历史和commitId
-	切换版本后再切回来，可以用：git reflog查看命令历史和commitId
+	切换版本：
+		git reset --hard commitId(写下前几位即可，Git会自动去找)
+	切换版本前可以使用：
+		git log 查看提交历史和commitId
+	切换版本后再切回来，可以用：
+		git reflog查看命令历史和commitId
 
-##
+##工作区和版本库
 	工作区(Working Directory): git init 文件夹
 	版本库(Repository): 工作区的隐藏目录".git"，这个不算工作区，这是Git的版本库
 	
 	版本库：
-		stage(暂存区)
+		stage(暂存区) ：
 		master分支（Git为我们自动创建的）
 		指向master的指针HEAD
-	
-	git diff HEAD -- 文件名 ：查看工作区和版本库最新版本的区别
+	git add 是添加到暂存区
+	git commit 是把暂存区的内容提交到提交到当前分支（不包括工作区已修改的内容）
 
+##管理修改	
+	git diff HEAD -- file ：查看工作区和版本库最新版本的区别
 
-
-
-
-
-
+##撤销修改
+	git checkout -- file：是用版本库的版本去替换掉工作区的版本，即把文件在工作区的修改全部撤销，这包括两种情况：
+		第一，修改已经添加到暂存区，然后又作了修改，撤销会回到暂存区的状态； 第二，文件修改还没有放到暂存区，撤销会回到和版本库一样的状态
+	git checkout : 创建新分支
+	git reset HEAD file：可以把暂存区的修改撤回，回到工作区
+#应用场景
+	1. 文件错乱想要直接丢弃工作区的修改时，用  
+		git checkout -- file
+	2. 文件错乱并且已经添加到暂存区时，想丢弃修改，分两步：
+		第一：git reset HEAD file 
+		第二：git checkout -- file 
+	3. 文件错乱并且已经提交到版本库，想要撤销提交，可以用
+		git log 查看提交历史和commitId
+		git reflog查看命令历史和commitId
+		git reset --hard commitId
 
 
 
