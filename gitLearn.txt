@@ -3,15 +3,22 @@ modified
 append 123
 
 ###############
+##	
+	HEAD 指向的版本就是当前版本
+	切换版本：git reset --hard commitId(写下前几位即可，Git会自动去找)
+	切换版本前可以使用：git log 查看提交历史和commitId
+	切换版本后再切回来，可以用：git reflog查看命令历史和commitId
+
+##
+	工作区(Working Directory): git init 文件夹
+	版本库(Repository): 工作区的隐藏目录".git"，这个不算工作区，这是Git的版本库
 	
-	HEAD ָ��İ汾���ǵ�ǰ�汾
-	�л��汾��git reset --hard commitId(д��ǰ��λ���ɣ�Git���Զ�ȥ��)
-	�л��汾ǰ����ʹ�ã�git log �鿴�ύ��ʷ��commitId
-	�л��汾�����л����������ã�git reflog�鿴������ʷ��commitId
-
-
-
-
+	版本库：
+		stage(暂存区)
+		master分支（Git为我们自动创建的）
+		指向master的指针HEAD
+	
+	git diff HEAD -- 文件名 ：查看工作区和版本库最新版本的区别
 
 
 
