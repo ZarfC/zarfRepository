@@ -48,6 +48,31 @@ append 123
 	GitHub是提供Git仓库托管服务的网站，注册即可免费获得Git远程仓库
 	本地Git仓库和GitHub仓库之间的传输是通过SSH加密的，需要windows下生成ssh key并设置到GitHub远程仓库（windows下生成ssh key详解https://blog.csdn.net/suo_ivy/article/details/79940839）
 
-
-
+##分支管理
+##创建与合并分支
+	一开始的时候，master分支是一条线，Git用master指向新的提交，再用HEAD指向 master，就能确定当前分支，以及当前分支的提交点
+	当我们创建新的分支，例如dev时，Git新建了一个指针叫dev，指向master相同的提交， 再把HEAD指向dev，就表示当前分支在dev上
+	Git创建一个分支很快，因为除了增加⼀一个dev指针，改改HEAD的指向，工作区的文件都没有任何变化
+	假如我们在dev上的工作完成了，就可以把dev合并到master上。Git怎么合并呢？简单 的方法，就是直接把master指向dev的当前提交，就完成了合并
+	所以Git合并分支也很快！就改改指针，工作区内容也不变！ 
+	合并完分支后，甚至可以删除dev分支。删除dev分支就是把dev指针给删掉，删掉后，我们就剩下了一条master分支
+	
+	git checkout -b dev : 创建并切换到dev分支  相当于以下两条命令：
+	git branch dev ：创建分支
+	git checkout dev ：切换分支
+	git merge dev ：合并dev分支到当前分支
+	git branch 查看当前所有分支
+	git branch -d dev 删除dev分支
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
