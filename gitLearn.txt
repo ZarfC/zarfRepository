@@ -42,10 +42,11 @@ append 123
 		git reflog查看命令历史和commitId
 		git reset --hard commitId
 
-
-
-
-
+###############
+##远程仓库
+	找一台电脑充当服务器的角色，每天24小时开机，其他每个人都从这 个“服务器”仓库克隆一份到自己的电脑上，并且各自把各自的提交推送到服务器仓库里， 也从服务器仓库中拉取别人的提交。
+	GitHub是提供Git仓库托管服务的网站，注册即可免费获得Git远程仓库
+	本地Git仓库和GitHub仓库之间的传输是通过SSH加密的，需要windows下生成ssh key并设置到GitHub远程仓库（windows下生成ssh key详解https://blog.csdn.net/suo_ivy/article/details/79940839）
 
 
 
